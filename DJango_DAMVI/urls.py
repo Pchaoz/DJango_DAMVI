@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Videojocs.views import Videojocs
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', Videojocs.as_view()),
 ]
