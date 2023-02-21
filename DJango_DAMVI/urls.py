@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Videojocs.views import Videojocs
+from Videojocs.views import Videojocs, getUser, allUsers
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Videojocs.as_view()),
+    path('test/', Videojocs.as_view()),
+    path('getUser/<id>', getUser.as_view()),
+    path('allUsers/', allUsers.as_view())
 ]
