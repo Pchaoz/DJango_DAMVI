@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -8,6 +9,7 @@ from django.db import models
 class Plataforma(models.Model):
     nom = models.CharField(max_lenght=30, null=False, default="")
     afegit=models.DateField(default=datetime.date.now())
+    usuaris = models.ManyToManyField(User)
 
 class Videojoc(models.Model):
     nom = models.CharField(max_lenght=30,null=False,default="")
