@@ -19,9 +19,12 @@ class AfegirDades(View):
         Usuari1 = User.objects.create_user(username="exemple", password="exemple", email="exemple@test.com")
 
         # Plataformes creades
-        Plataforma1 = Plataforma.objects.create(nom="Gameflix", usuaris=Usuari1)
-        Plataforma2 = Plataforma.objects.create(nom="Steam", usuaris=Usuari1)
-        Plataforma3 = Plataforma.objects.create(nom="Epic", usuaris=Usuari1)
+        Plataforma1 = Plataforma.objects.create(nom="Gameflix")
+        Plataforma1.usuaris.add(Usuari1)
+        Plataforma2 = Plataforma.objects.create(nom="Steam")
+        Plataforma2.usuaris.add(Usuari1)
+        Plataforma3 = Plataforma.objects.create(nom="Epic")
+        Plataforma3.usuaris.add(Usuari1)
 
         # Videojocs creats
         Videojoc1 = Videojoc.objects.create(nom="Crash Bandicoot", preu=33, nou=False, plataforma=Plataforma2)
