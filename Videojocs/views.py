@@ -17,6 +17,7 @@ class AfegirDades(View):
     def get(self, data):
         # Usuaris creats
         Usuari1 = User.objects.create_user(username="exemple", password="exemple", email="exemple@test.com")
+        # Per crear superusuari: python manage.py createsuperuser
 
         # Plataformes creades
         Plataforma1 = Plataforma.objects.create(nom="Gameflix")
