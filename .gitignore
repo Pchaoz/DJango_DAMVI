@@ -1,0 +1,16 @@
+
+__pycache__/manage.cpython-39.pyc
+DJango_DAMVI/__pycache__/__init__.cpython-39.pyc
+DJango_DAMVI/__pycache__/settings.cpython-39.pyc
+DJango_DAMVI/__pycache__/urls.cpython-37.pyc
+Videojocs/__pycache__/__init__.cpython-39.pyc
+Videojocs/__pycache__/admin.cpython-37.pyc
+Videojocs/__pycache__/admin.cpython-39.pyc
+Videojocs/__pycache__/apps.cpython-39.pyc
+Videojocs/__pycache__/models.cpython-37.pyc
+Videojocs/__pycache__/models.cpython-39.pyc
+Videojocs/__pycache__/views.cpython-37.pyc
+Videojocs/migrations/0002_alter_plataforma_afegit.py
+Videojocs/migrations/__pycache__/0001_initial.cpython-37.pyc
+.idea/misc.xml
+.idea/DJango_DAMVI.iml
