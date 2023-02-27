@@ -36,7 +36,7 @@ class AfegirDades(View):
 
 class AddPlataforma(View):
     # Sortirà un formulari amb Jinja on poses les dades de la plataforma i afegeix una plataforma
-    def get(self, request,id):
+    def get(self, request):
         context = {
             'plataforma' : Plataforma.objects.get(id=id)
         }
