@@ -16,9 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Videojocs.views import Videojocs
+from Videojocs.views import Videojocs, AddPlataforma, PlataformaRandom, PlataformaRandomNou, AssociaPlataformaUsuari, \
+    PlataformesUsuari, PlataformaRandomUsuari, AfegirJocPlataforma, AssociarVideojocUsuari, EliminaVideojoc
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Videojocs.as_view()),
+    path('addPlataforma/', AddPlataforma.as_view()),
+    path('plataformaRandom/', PlataformaRandom.as_view()),
+    path('plataformaRandomNou/', PlataformaRandomNou.as_view()),
+    path('plataforma/<int:idplataforma>/<int:idusuari>/', AssociaPlataformaUsuari.as_view()),
+    path('PlataformesDe/<Nom>/', PlataformesUsuari.as_view()),
+    path('PlataformaDe/<Nom>/', PlataformaRandomUsuari.as_view()),
+    path('addVideojoc/<int:idplataforma>/', AfegirJocPlataforma.as_view()),
+    path('videojoc/<int:idvideojoc>/<int:idusuari>/', AssociarVideojocUsuari.as_view()),
+    path('removeVideojoc/<int:idvideojoc>/<int:idusuari>/', EliminaVideojoc.as_view())
 ]
