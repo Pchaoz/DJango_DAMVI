@@ -1,16 +1,34 @@
+from django.contrib.auth.models import User
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic.base import View
 
-from Videojocs.models import Plataforma
+from Videojocs.models import Plataforma, Videojoc
 
 
 class Videojocs(View):
     # Definim el mètode HTTP el qual s'ha d'atendre
     def get(self,data ):
         return HttpResponse(content='Això és una prova')
+
+class AfegirDades(View):
+    def get(self, data):
+        # Usuaris creats
+        Usuari1 = User.objects.create_user(username="exemple", password="exemple", email="exemple@test.com")
+
+        # Plataformes creades
+        Plataforma1 = Plataforma.objects.create(nom="Gameflix", usuaris=Usuari1)
+        Plataforma2 = Plataforma.objects.create(nom="Steam", usuaris=Usuari1)
+        Plataforma3 = Plataforma.objects.create(nom="Epic", usuaris=Usuari1)
+
+        # Videojocs creats
+        Videojoc1 = Videojoc.objects.create(nom="Crash Bandicoot", preu=33, nou=False, plataforma=Plataforma2)
+        Videojoc2 = Videojoc.objects.create(nom="Valorant", preu=10, nou=True, plataforma=Plataforma3)
+        Videojoc3 = Videojoc.objects.create(nom="Sanic", preu=20, nou=False, plataforma=Plataforma1)
+
+        return HttpResponse("Creant les dades. Comprova la bbdd.")
 
 class AddPlataforma(View):
     # Sortirà un formulari amb Jinja on poses les dades de la plataforma i afegeix una plataforma

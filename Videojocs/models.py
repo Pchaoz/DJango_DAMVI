@@ -1,4 +1,6 @@
 import datetime
+
+import django.utils.timezone
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -7,7 +9,7 @@ from django.db import models
 
 class Plataforma(models.Model):
     nom = models.CharField(max_length=30, null=False, default="")
-    afegit=models.DateField(default=datetime.date.today())
+    afegit=models.DateField(default=django.utils.timezone.now())
     usuaris = models.ManyToManyField(User)
 
 class Videojoc(models.Model):

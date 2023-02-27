@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 
 from Videojocs.views import Videojocs, AddPlataforma, PlataformaRandom, PlataformaRandomNou, AssociaPlataformaUsuari, \
-    PlataformesUsuari, PlataformaRandomUsuari, AfegirJocPlataforma, AssociarVideojocUsuari, EliminaVideojoc
+    PlataformesUsuari, PlataformaRandomUsuari, AfegirJocPlataforma, AssociarVideojocUsuari, EliminaVideojoc, AfegirDades
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Videojocs.as_view()),
+    path('afegirDades/', AfegirDades.as_view()),
     path('addPlataforma/', AddPlataforma.as_view()),
     path('plataformaRandom/', PlataformaRandom.as_view()),
     path('plataformaRandomNou/', PlataformaRandomNou.as_view()),
