@@ -1,9 +1,11 @@
+from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
 from django.views.generic.base import View
+from pymongo.auth import authenticate
 
 from Videojocs.models import Plataforma, Videojoc
 
@@ -33,6 +35,21 @@ class AfegirDades(View):
         Videojoc3 = Videojoc.objects.create(nom="Sanic", preu=20, nou=False, plataforma=Plataforma1)
 
         return HttpResponse("Creant les dades. Comprova la bbdd.")
+
+class LoginView(View):
+    # un login
+    def get(self, request):
+        return render(request, 'login.html')
+    def post(self, request):
+        # Treiem les dades d' autenticacio del formulari i les passem a una variable. El password l' encripta automaticament per l' authenticate
+        usuari = authenticate(request, username=request.POST.get('username'), password=request.POST.get('password'))
+        # Comprovem si existeix l' usuari
+        if usuari is not None:
+            # Login ens obre directament una sessió amb aquest usuari
+            login(request, usuari)
+            return HttpResponse(content='Sessió iniciada correctament.')
+        return self.get(request)
+
 
 class AddPlataforma(View):
     # Sortirà un formulari amb Jinja on poses les dades de la plataforma i afegeix una plataforma

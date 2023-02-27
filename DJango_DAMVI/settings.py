@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Videojocs'
+    'Videojocs',
+    #'rest_framework'
 ]
 
 MIDDLEWARE = [

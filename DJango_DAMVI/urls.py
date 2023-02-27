@@ -31,5 +31,6 @@ urlpatterns = [
     path('PlataformaDe/<Nom>/', PlataformaRandomUsuari.as_view()),
     path('addVideojoc/<int:idplataforma>/', AfegirJocPlataforma.as_view()),
     path('videojoc/<int:idvideojoc>/<int:idusuari>/', AssociarVideojocUsuari.as_view()),
-    path('removeVideojoc/<int:idvideojoc>/<int:idusuari>/', EliminaVideojoc.as_view())
+    path('removeVideojoc/<int:idvideojoc>/<int:idusuari>/', EliminaVideojoc.as_view()),
+    path('login/', LoginView.as_view(), name='login')
 ]
