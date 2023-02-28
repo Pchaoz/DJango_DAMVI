@@ -16,21 +16,24 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Videojocs.views import Videojocs, AddPlataforma, PlataformaRandom, PlataformaRandomNou, AssociaPlataformaUsuari, \
-    PlataformesUsuari, PlataformaRandomUsuari, AfegirJocPlataforma, AssociarVideojocUsuari, EliminaVideojoc, AfegirDades
+from Videojocs.api.views import PlataformaRandom, PlataformaRandomNou, PlataformaRandomUsuari
+from Videojocs.views import Videojocs, AddPlataforma, AssociaPlataformaUsuari, \
+    PlataformesUsuari, AfegirJocPlataforma, AssociarVideojocUsuari, EliminaVideojoc, \
+    AfegirDades, LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Videojocs.as_view()),
     path('afegirDades/', AfegirDades.as_view()),
-    path('addPlataforma/', AddPlataforma.as_view()),
+    path('addPlataforma/', AddPlataforma.as_view(), name='addPlataforma'),
     path('plataformaRandom/', PlataformaRandom.as_view()),
     path('plataformaRandomNou/', PlataformaRandomNou.as_view()),
     path('plataforma/<int:idplataforma>/<int:idusuari>/', AssociaPlataformaUsuari.as_view()),
-    path('PlataformesDe/<Nom>/', PlataformesUsuari.as_view()),
-    path('PlataformaDe/<Nom>/', PlataformaRandomUsuari.as_view()),
-    path('addVideojoc/<int:idplataforma>/', AfegirJocPlataforma.as_view()),
+    path('PlataformesDe/<nom>/', PlataformesUsuari.as_view()),
+    path('PlataformaDe/<nom>/', PlataformaRandomUsuari.as_view()),
+    path('addVideojoc/<int:idplataforma>/', AfegirJocPlataforma.as_view(), name='addVideojocPlataforma'),
     path('videojoc/<int:idvideojoc>/<int:idusuari>/', AssociarVideojocUsuari.as_view()),
     path('removeVideojoc/<int:idvideojoc>/<int:idusuari>/', EliminaVideojoc.as_view()),
-    path('login/', LoginView.as_view(), name='login')
+    path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout')
 ]

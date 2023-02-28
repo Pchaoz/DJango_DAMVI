@@ -12,13 +12,13 @@
                 <div class="card bg-dark rounded-2 h-50">
                     <div class="card-body p-5 text-center">
                         <!--<div class="row d-flex justify-content-center align-items-center"> -->
-                            <form action="{% url 'addPlataforma' %}" method="POST">
-                              <h1 class="text-light">Afegir una plataforma</h1>
+                            <form action="{% url 'addVideojocPlataforma' plataforma.id %}" method="POST">
+                              <h1 class="text-light">Afegir un Videojoc a una Plataforma</h1>
                                 <br>
                               <!-- Token per evitar entrar amb identificacio falsa (sense login) -->
                               {% csrf_token %}
                               <div class="form-outline form-white mb-4">
-                                  <label class="text-light">Nom plataforma:</label> <input type="text" id="nom" name="nom" placeholder="Nom Plataforma">
+                                  <label class="text-light">Nom Videojoc:</label> <input type="text" id="videojoc" name="videojoc" placeholder="Nom Videojoc">
                               </div>
                                 <br>
                               <input type="submit" class="btn btn-primary">
